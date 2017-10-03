@@ -18,7 +18,9 @@ while True:
     # get guess from player, convert to integer
     try:
         guess = int(raw_input("Your guess? "))
-
+    except ValueError:
+        print "You did not enter a number! Please try again."
+    else:
         if guess > 100 or guess < 1:
             print "Your guess is out of bounds"
         elif guess > random_num:
@@ -28,9 +30,6 @@ while True:
         else:
             print "Congratulations! That's correct!"
             break
-    except ValueError:
-        print "You did not enter a number! Please try again."
-
 
 
 

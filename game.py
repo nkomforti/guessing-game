@@ -18,7 +18,9 @@ while True:
     # get guess from player, convert to integer
     guess = int(raw_input("Your guess? "))
 
-    if guess > random_num:
+    if guess > 100 or guess < 1:
+        print "Your guess is out of bounds"
+    elif guess > random_num:
         print "Too high"
     elif guess < random_num:
         print "Too low"

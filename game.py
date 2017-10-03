@@ -12,9 +12,9 @@ print "Welcome, %s" % (player_name)
 random_num = random.randint(1, 100)
 # why is guess initially set to "None" and not 0 or something else?
 # initialize guess variable
-guess = None
-# start loop, while guess is not equal to random number
-while guess != random_num:
+
+# start loop
+while True:
     # get guess from player, convert to integer
     guess = int(raw_input("Your guess? "))
 
@@ -24,6 +24,26 @@ while guess != random_num:
         print "Too low"
     else:
         print "Congratulations! That's correct!"
+        break
+
+
+
+
+# guess = None
+# # start loop, while guess is not equal to random number
+# while guess != random_num:
+#     # get guess from player, convert to integer
+#     guess = int(raw_input("Your guess? "))
+
+#     if guess > random_num:
+#         print "Too high"
+#     elif guess < random_num:
+#         print "Too low"
+#     else:
+#         print "Congratulations! That's correct!"
+
+
+
 
 # if the guess does not equal the random number
     # if guess != random_num:

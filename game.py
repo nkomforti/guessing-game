@@ -16,17 +16,20 @@ random_num = random.randint(1, 100)
 # start loop
 while True:
     # get guess from player, convert to integer
-    guess = int(raw_input("Your guess? "))
+    try:
+        guess = int(raw_input("Your guess? "))
 
-    if guess > 100 or guess < 1:
-        print "Your guess is out of bounds"
-    elif guess > random_num:
-        print "Too high"
-    elif guess < random_num:
-        print "Too low"
-    else:
-        print "Congratulations! That's correct!"
-        break
+        if guess > 100 or guess < 1:
+            print "Your guess is out of bounds"
+        elif guess > random_num:
+            print "Too high"
+        elif guess < random_num:
+            print "Too low"
+        else:
+            print "Congratulations! That's correct!"
+            break
+    except ValueError:
+        print "You did not enter a number! Please try again."
 
 
 

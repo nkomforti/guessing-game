@@ -17,14 +17,22 @@ guess = None
 while guess != random_num:
     # get guess from player, convert to integer
     guess = int(raw_input("Your guess? "))
-# if the guess does not equal the random number
-    if guess != random_num:
-        # give hint, check if guess is greater than or less than random number
-        if guess > random_num:
-            print "Too high"
-        else:
-            print "Too low"
-        # else the guess equals the random number, congratulate player
+
+    if guess > random_num:
+        print "Too high"
+    elif guess < random_num:
+        print "Too low"
     else:
-        print "Congratulations, that is correct!"
+        print "Congratulations! That's correct!"
+
+# if the guess does not equal the random number
+    # if guess != random_num:
+        # give hint, check if guess is greater than or less than random number
+        # if guess > random_num:
+            # print "Too high"
+        # else:
+    #         print "Too low"
+    #     # else the guess equals the random number, congratulate player
+    # else:
+    #     print "Congratulations, that is correct!"
 

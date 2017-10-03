@@ -8,28 +8,44 @@ print "Hello, welcome to the guessing game."
 player_name = raw_input("What is your name? ")
 # welcome player to game
 print "Welcome, %s" % (player_name)
-#generate random number (integer) using random module (between 1 and 100)
-random_num = random.randint(1, 100)
-# why is guess initially set to "None" and not 0 or something else?
-# initialize guess variable
 
-# start loop
+number_of_guesses = 0
+best_score = 0
+
 while True:
-    # get guess from player, convert to integer
-    try:
-        guess = int(raw_input("Your guess? "))
-    except ValueError:
-        print "You did not enter a number! Please try again."
-    else:
-        if guess > 100 or guess < 1:
-            print "Your guess is out of bounds"
-        elif guess > random_num:
-            print "Too high"
-        elif guess < random_num:
-            print "Too low"
+    #generate random number (integer) using random module (between 1 and 100)
+    random_num = random.randint(1, 100)
+    # start loop
+    while True:
+
+        # get guess from player, convert to integer
+        try:
+            guess = int(raw_input("Your guess? "))
+        except ValueError:
+            print "You did not enter a number! Please try again."
         else:
-            print "Congratulations! That's correct!"
-            break
+            if guess > 100 or guess < 1:
+                print "Your guess is out of bounds"
+                number_of_guesses += 1
+            elif guess > random_num:
+                print "Too high"
+                number_of_guesses += 1
+            elif guess < random_num:
+                print "Too low"
+                number_of_guesses += 1
+            else:
+                print "Congratulations! That's correct! You guessed the right number in %d tries." % (number_of_guesses)
+                if number_of_guesses < best_score:
+                    best_score = number_of_guesses
+                    print "New high score! %d tries" % (best_score)
+                break
+
+    play_again = (raw_input("Would you like to play again? Y/N? ")).upper()
+    # play_again = play_again.upper()
+    if play_again == "Y":
+        continue
+    else:
+        break
 
 
 

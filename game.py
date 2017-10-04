@@ -12,8 +12,18 @@ print "Welcome, %s" % (player_name)
 best_score = None
 
 while True:
+    user_range = (raw_input("Would you like to set the range? Y/N? ")).upper()
+    # play_again = play_again.upper()
+    if user_range == "Y":
+        min_num = int(raw_input("Enter minimum number: "))
+        max_num = int(raw_input("Enter maximum number: "))
+        random_num = random.randint(min_num, max_num)
+    else:
+        min_num = 1
+        max_num = 100
     #generate random number (integer) using random module (between 1 and 100)
-    random_num = random.randint(1, 100)
+        random_num = random.randint(min_num, max_num)
+
     #set number of guesses to 0 each time outer loop is run
     number_of_guesses = 0
     # start loop
@@ -25,7 +35,7 @@ while True:
         except ValueError:
             print "You did not enter a number! Please try again."
         else:
-            if guess > 100 or guess < 1:
+            if guess > max_num or guess < min_num:
                 print "Your guess is out of bounds"
                 number_of_guesses += 1
             elif number_of_guesses >= 10:

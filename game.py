@@ -9,12 +9,13 @@ player_name = raw_input("What is your name? ")
 # welcome player to game
 print "Welcome, %s" % (player_name)
 
-number_of_guesses = 0
-best_score = 0
+best_score = None
 
 while True:
     #generate random number (integer) using random module (between 1 and 100)
     random_num = random.randint(1, 100)
+    #set number of guesses to 0 each time outer loop is run
+    number_of_guesses = 0
     # start loop
     while True:
 
@@ -34,8 +35,12 @@ while True:
                 print "Too low"
                 number_of_guesses += 1
             else:
+                number_of_guesses += 1
                 print "Congratulations! That's correct! You guessed the right number in %d tries." % (number_of_guesses)
-                if number_of_guesses < best_score:
+                #first time played through, best score is None, so needs to be set to number of guesses
+                if best_score is None:
+                    best_score = number_of_guesses
+                elif number_of_guesses < best_score:
                     best_score = number_of_guesses
                     print "New high score! %d tries" % (best_score)
                 break

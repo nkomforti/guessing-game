@@ -28,6 +28,9 @@ while True:
             if guess > 100 or guess < 1:
                 print "Your guess is out of bounds"
                 number_of_guesses += 1
+            elif number_of_guesses >= 10:
+                print "You are out of guesses"
+                break
             elif guess > random_num:
                 print "Too high"
                 number_of_guesses += 1
